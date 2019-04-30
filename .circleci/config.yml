@@ -14,19 +14,17 @@ jobs:
       - checkout
       # NPM install
       - run:
-  	  name: Install node_modules
-          working_directory: example
-          command: npm install
+  	    name: Install node_modules
+        working_directory: example
+        command: npm install
       # Install CocoaPods
       - run:
-          name: Install CocoaPods
-	  working_directory: example/ios
-          command: pod install
+        name: Install CocoaPods
+	      working_directory: example/ios
+        command: pod install
       # build xcode project
       - run:
-          name: Build example
-	  working_directory: example/ios
-          command: xcodebuild -workspace ./RNMapboxGLExample.xcworkspace -scheme RNMapboxGLExample
-          environment:
-            SCAN_DEVICE: iPhone 6
-            SCAN_SCHEME: WebTests
+        name: Build example
+	      working_directory: example/ios
+        command: xcodebuild -workspace ./RNMapboxGLExample.xcworkspace -scheme RNMapboxGLExample
+
