@@ -1,0 +1,32 @@
+# iOS CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/ios-migrating-from-1-2/ for more details
+#
+version: 2
+jobs:
+  build:
+
+    # Specify the Xcode version to use
+    macos:
+      xcode: "10.2.0"
+
+    steps:
+      - checkout
+      # NPM install
+      - run:
+  	  name: Install node_modules
+          working_directory: example
+          command: npm install
+      # Install CocoaPods
+      - run:
+          name: Install CocoaPods
+	  working_directory: example/ios
+          command: pod install
+      # build xcode project
+      - run:
+          name: Build example
+	  working_directory: example/ios
+          command: xcodebuild -workspace ./RNMapboxGLExample.xcworkspace -scheme RNMapboxGLExample
+          environment:
+            SCAN_DEVICE: iPhone 6
+            SCAN_SCHEME: WebTests
