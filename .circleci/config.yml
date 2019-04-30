@@ -14,17 +14,17 @@ jobs:
       - checkout
       # NPM install
       - run:
-  	    name: Install node_modules
+        name: Install node_modules
         working_directory: example
         command: npm install
       # Install CocoaPods
       - run:
         name: Install CocoaPods
-	      working_directory: example/ios
+        working_directory: example/ios
         command: pod install
       # build xcode project
       - run:
         name: Build example
-	      working_directory: example/ios
+        working_directory: example/ios
         command: xcodebuild -workspace ./RNMapboxGLExample.xcworkspace -scheme RNMapboxGLExample
 
