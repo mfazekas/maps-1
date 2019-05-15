@@ -41,6 +41,7 @@ install:
   - cd $TRAVIS_BUILD_DIR/example
   - echo $MAPBOX_ACCESS_TOKEN > ./accesstoken
   - find node_modules -name ".git" -exec rm -r "{}" \; || true
+  - rm -rf example/node_modules/\@react-native-mapbox/
   - npm install
   - echo $TRAVIS_OS_NAME
   - |
