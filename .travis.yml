@@ -64,8 +64,8 @@ script:
       cd $TRAVIS_BUILD_DIR/example/ios
       set -o pipefail
       rm -f build
-      (xcodebuild analyze -arch i386 -sdk iphonesimulator12.2  -workspace ./RNMapboxGLExample.xcworkspace -scheme RNMapboxGLExample | xcpretty -c) || true
-      xcodebuild build -arch i386 -sdk iphonesimulator12.2  -workspace ./RNMapboxGLExample.xcworkspace -scheme RNMapboxGLExample | xcpretty -c
+      (xcodebuild analyze -arch x86_64 -sdk iphonesimulator12.2  -workspace ./RNMapboxGLExample.xcworkspace -scheme RNMapboxGLExample | xcpretty -c) || true
+      xcodebuild build -arch x86_64 -sdk iphonesimulator12.2  -workspace ./RNMapboxGLExample.xcworkspace -scheme RNMapboxGLExample | xcpretty -c
     fi
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
