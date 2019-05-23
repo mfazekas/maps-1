@@ -25,8 +25,6 @@ import java.util.Map;
  * Created by nickitaliano on 8/18/17.
  */
 
-this is an error in java;
-
 public class ConvertUtils {
     public static final String LOG_TAG = ConvertUtils.class.getSimpleName();
 
