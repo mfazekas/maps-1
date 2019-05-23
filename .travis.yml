@@ -54,6 +54,7 @@ install:
     if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       cd $TRAVIS_BUILD_DIR/example/ios
       pod install
+      pod update
       gem install xcpretty
     fi
 
@@ -63,6 +64,7 @@ script:
       cd $TRAVIS_BUILD_DIR/example/ios
       set -o pipefail
       rm -f build
+      (xcodebuild analyze -workspace ./RNMapboxGLExample.xcworkspace -scheme RNMapboxGLExample | xcpretty -c) || true
       xcodebuild build -workspace ./RNMapboxGLExample.xcworkspace -scheme RNMapboxGLExample | xcpretty -c
     fi
   - |
