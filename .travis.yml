@@ -62,6 +62,7 @@ script:
     if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       cd $TRAVIS_BUILD_DIR/example/ios
       set -o pipefail
+      rm -f build
       xcodebuild -workspace ./RNMapboxGLExample.xcworkspace -scheme RNMapboxGLExample | xcpretty -c
     fi
   - |
