@@ -70,7 +70,7 @@ script:
       TERM=dumb ./gradlew assemble
     fi
   - cd $TRAVIS_BUILD_DIR
-  - yarn install -g 'jest@24.8.0'
+  - yarn global add -g 'jest@24.8.0'
   - yarn install
   - yarn run unittest
 
